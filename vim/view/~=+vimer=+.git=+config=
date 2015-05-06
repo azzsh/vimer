@@ -14,7 +14,7 @@ setlocal cinwords=if,else,while,do,for,switch
 setlocal comments=:#,:;
 setlocal commentstring=;\ %s
 setlocal complete=.,w,b,u,t,i
-setlocal completefunc=neocomplcache#complete#manual_complete
+setlocal completefunc=neocomplcache#complete#auto_complete
 setlocal nocopyindent
 setlocal nocursorcolumn
 setlocal cursorline
@@ -94,7 +94,9 @@ setlocal wrap
 setlocal wrapmargin=0
 7
 normal zo
-let s:l = 8 - ((7 * winheight(0) + 12) / 25)
+10
+normal zo
+let s:l = 8 - ((7 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt

@@ -7,8 +7,8 @@ endif
 "{Vundle配置
 "set rtp+=$VIM/vimfiles/bundle/vundle/
 "call vundle#rc('$VIM/vimfiles/bundle')
-set rtp+=/home/yanyalong/.vim/vimfiles/bundle/vundle/
-call vundle#rc('/home/yanyalong/.vim/vimfiles/bundle')
+set rtp+=$HOME/.vim/vimfiles/bundle/vundle/
+call vundle#rc($HOME.'/.vim/vimfiles/bundle')
 Bundle 'gmarik/vundle'
 Bundle 'https://github.com/bling/vim-airline.git'
 "Bundle 'https://github.com/Lokaltog/vim-powerline.git'
