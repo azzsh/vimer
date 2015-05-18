@@ -4,4 +4,11 @@
 # 初始化完成后配置软连接
 #.vim -> vimer/.vim
 #.vimrc -> vimer/.vimrc
+#首次使用须配置 .git/config
+#修改
+#[remote "origin"]  
+#url = https://github.com/wangz/example.git  
+#为：
+#[remote "origin"]  
+#url = https://wangz@github.com/wangz/example.git 
 
