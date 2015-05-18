@@ -7,8 +7,8 @@
 #首次使用须配置 .git/config
 #修改
 #[remote "origin"]  
-#url = https://github.com/wangz/example.git  
+#url = https://github.com/azzsh/example.git  
 #为：
 #[remote "origin"]  
-#url = https://wangz@github.com/wangz/example.git 
+#url = https://azzsh@github.com/azzsh/example.git 
 
