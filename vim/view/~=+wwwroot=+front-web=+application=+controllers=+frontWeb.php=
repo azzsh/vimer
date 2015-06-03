@@ -101,10 +101,8 @@ silent! normal! zE
 50,67fold
 75,78fold
 86,86fold
-92,185fold
-92,185fold
-92,185fold
-92,187fold
+116,124fold
+96,130fold
 22
 normal zc
 50
@@ -113,26 +111,18 @@ normal zc
 normal zo
 86
 normal zo
-92
+96
 normal zo
-92
+116
 normal zo
-92
+96
 normal zo
-92
-normal zo
-92
-normal zo
-92
-normal zo
-92
-normal zo
-let s:l = 185 - ((32 * winheight(0) + 20) / 41)
+let s:l = 88 - ((20 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-185
-normal! 0
+88
+normal! 08l
 lcd ~/wwwroot/front-web/application/controllers
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost

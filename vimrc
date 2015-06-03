@@ -1,14 +1,14 @@
 syntax on
 if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
+    source /etc/vim/vimrc.local
 endif
 
 
 "{Vundle配置
 "set rtp+=$VIM/vimfiles/bundle/vundle/
 "call vundle#rc('$VIM/vimfiles/bundle')
-set rtp+=/home/yanyalong/.vim/vimfiles/bundle/vundle/
-call vundle#rc('/home/yanyalong/.vim/vimfiles/bundle')
+set rtp+=$HOME/.vim/vimfiles/bundle/vundle/      
+call vundle#rc($HOME.'/.vim/vimfiles/bundle')
 Bundle 'gmarik/vundle'
 Bundle 'https://github.com/bling/vim-airline.git'
 "Bundle 'https://github.com/Lokaltog/vim-powerline.git'
@@ -23,8 +23,8 @@ Bundle 'https://github.com/Shougo/neocomplcache.vim.git'
 Bundle 'https://github.com/msanders/snipmate.vim.git'
 Bundle 'https://github.com/vimwiki/vimwiki.git'
 "Bundle 'https://github.com/andy-morris/CurrentWord.git'
-Bundle 'https://github.com/vim-scripts/TxtBrowser.git'
-Bundle 'https://github.com/vim-scripts/Mark.git'
+"Bundle 'https://github.com/vim-scripts/TxtBrowser.git'
+"Bundle 'https://github.com/vim-scripts/Mark.git'
 Bundle 'https://github.com/vim-scripts/grep.vim.git'
 "Bundle 'https://github.com/vim-scripts/FuzzyFinder.git'
 "Bundle 'https://github.com/vim-scripts/L9.git'
@@ -34,13 +34,17 @@ Bundle 'https://github.com/altercation/vim-colors-solarized.git'
 "Bundle 'https://github.com/alvan/vim-assistant.git' "用来提示带参数的函数 
 "Bundle 'https://github.com/vim-scripts/VisIncr.git'
 Bundle "https://github.com/tomasr/molokai.git"
-Bundle "https://github.com/tpope/vim-fugitive.git"
+"Bundle 'https://github.com/tpope/vim-fugitive.git'
+Bundle 'dyng/ctrlsf.vim'
+"Bundle 'https://github.com/terryma/vim-multiple-cursors.git'
+"html标签高粱匹配
+Bundle 'https://github.com/vim-scripts/MatchTag.git'
+"Bundle 'https://github.com/vim-scripts/indentLine.vim.git'
 
 filetype plugin indent on     " required! 
 "}
 
 
-colorscheme molokai
 
 "set cursorline
 "ht" cursorline guibg=#00ff00
@@ -249,10 +253,6 @@ autocmd BufWinLeave * if expand('%') != '' && &buftype == '' | mkview | endif
 "每次打开文件时自动加载语法折叠信息
 autocmd BufRead     * if expand('%') != '' && &buftype == '' | silent loadview | endif
 ""
-"自动补全选择框色彩配置
-hi Pmenu guibg=#32cd32 guifg=Black gui=underline    
-hi PmenuSel guibg=#444444 guifg=Green 
-hi PmenuSel guibg=#ff69b4 guifg=Black
 "数字颜色
 "hi Number          guifg=#AE81FF
 
@@ -332,8 +332,8 @@ nmap Z ^v$y
 "}
 
 "高亮显示当前光标所在单词的上下文相同单词(电脑配置低无法正常使用CurrentWorld-master.vim时可开启){"
-"autocmd CursorMoved * silent! exe printf('match Underlined /\<%s\>/', expand('<cword>'))
-"autocmd CursorHold * silent! exe printf('match Underlined /\<%s\>/', expand('<cword>'))
+autocmd CursorMoved * silent! exe printf('match Underlined /\<%s\>/', expand('<cword>'))
+autocmd CursorHold * silent! exe printf('match Underlined /\<%s\>/', expand('<cword>'))
 "}
 
 "选中当前光标所在单词并不改变光标位置{
@@ -361,8 +361,8 @@ let g:syntastic_php_checkers = ['php'] "设置检查类型
 
 
 
-nnoremap <silent> <F6>  <Esc>:call ToggleQuickfix()<CR>
-inoremap <silent> <F6>  <Esc>:call ToggleQuickfix()<CR>
+nnoremap <silent> <F10>  <Esc>:call ToggleQuickfix()<CR>
+inoremap <silent> <F10>  <Esc>:call ToggleQuickfix()<CR>
 function! ToggleQuickfix()
     if (!exists("s:is_quickfix_open"))
         let s:is_quickfix_open=0
@@ -373,7 +373,7 @@ endfunction
 
 autocmd! bufwritepost _vimrc source %
 
-map <F9> :set paste!<BAr>set paste?<CR>
+map <F9> :set paste!<cr><BAr>set paste?<CR>
 set pastetoggle=<F9>
 
 
@@ -389,23 +389,23 @@ autocmd BufWinLeave * if expand('%') != '' && &buftype == '' | mkview | endif
 ""每次打开文件时自动加载语法折叠信息
 autocmd BufRead     * if expand('%') != '' && &buftype == '' | silent loadview | endif
 
-"mark插件配置 高亮显示光标所在单词以及全文相同单词 开始{
-"添加或取消一个单词标记
-nmap <F5> <esc><leader>m
-imap <F5> <esc><leader>m
-"取消所有标记
-nmap <F6> <esc><leader>n
-imap <F6> <esc><leader>n
-"把光标向前切换到当前被Mark的MarkWords中的下一个MarkWord.
-nmap <F7> <esc><leader>*
-imap <F7> <esc><leader>*
-"把光标向后切换到当前被Mark的MarkWords中的上一个MarkWord.
-nmap <F8> <esc><leader>#
-imap <F8> <esc><leader>#
-"搜索一个单词并标记
-"nmap <A-/> <esc><leader>r
-"imap <A-/> <esc><leader>r
-"结束}
+""mark插件配置 高亮显示光标所在单词以及全文相同单词 开始{
+""添加或取消一个单词标记
+"nmap <F5> <esc><leader>m
+"imap <F5> <esc><leader>m
+""取消所有标记
+"nmap <F6> <esc><leader>n
+"imap <F6> <esc><leader>n
+""把光标向前切换到当前被Mark的MarkWords中的下一个MarkWord.
+"nmap <F7> <esc><leader>*
+"imap <F7> <esc><leader>*
+""把光标向后切换到当前被Mark的MarkWords中的上一个MarkWord.
+"nmap <F8> <esc><leader>#
+"imap <F8> <esc><leader>#
+""搜索一个单词并标记
+""nmap <A-/> <esc><leader>r
+""imap <A-/> <esc><leader>r
+""结束}
 
 
 
@@ -420,9 +420,8 @@ let g:airline_section_c = '%t'
 let g:airline_section_warning = airline#section#create(['syntastic'])
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
-let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
-set linespace=0
 
 "dark simple tomorrow powerlineish
 let g:airline_theme             = 'dark' "修改airline主题
@@ -437,3 +436,121 @@ let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_symbols.readonly = '只读'
 
 
+"vimwiki开始{
+let g:vimwiki_use_mouse = 1
+"auto_export  是否在词条文件保存时就输出html  这个会让保存大词条比较慢 
+let g:vimwiki_list = [{'path': $HOME.'/blog/wikiCode/',
+            \ 'auto_export': 1,
+            \ 'syntax': 'default',
+            \ 'path_html': $HOME.'/blog'}]
+" 对中文用户来说，我们并不怎么需要驼峰英文成为维基词条
+let g:vimwiki_camel_case = 0
+" 标记为完成的 checklist 项目会有特别的颜色
+let g:vimwiki_hl_cb_checked = 1
+" 我的 vim 是没有菜单的，加一个 vimwiki 菜单项也没有意义
+let g:vimwiki_menu = ''
+" 是否开启按语法折叠  会让文件比较慢
+let g:vimwiki_folding = 1
+" 是否在计算字串长度时用特别考虑中文字符
+let g:vimwiki_CJK_length = 1
+" 详见下文...
+let g:vimwiki_valid_html_tags='a,b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1,img,ul,li,ol'
+"wimwiki结束}
+map <S-F4> :VimwikiAll2HTML<cr>
+"map <F4> :Vimwiki2HTML<cr> 
+map <leader>v :VimwikiRenameLink<cr> 
+" calendar
+map <leader>c :Calendar<cr> 
+imap <leader>c <esc>:Calendar<cr> 
+"创建wiki表格
+map <leader>t :VimwikiTable 2 2<cr>jla
+imap <leader>t <br>:VimwikiTable 2 2<cr>jla
+"dac 删除一列
+"yac 复制一列
+"wimwiki结束}
+
+
+"ctrlsf开始{
+"let g:ctrlsf_open_left = 0  "表示窗口在左边还是右边打开 
+"搜索指定单词
+nmap     <leader>g <Plug>CtrlSFPrompt   
+"试图模式下搜索已选择单词
+vmap     <leader>f <Plug>CtrlSFVwordPath 
+"试图模式下直接执行搜索已选择单词
+vmap     <leader>F <Plug>CtrlSFVwordExec 
+"搜索当前光标下单词
+nmap     <leader>n <Plug>CtrlSFCwordPath 
+nmap     <leader>p <Plug>CtrlSFPwordPath 
+"nnoremap <leader>o :CtrlSFOpen<CR> 
+
+"打开或关闭窗口 
+nnoremap <leader>t :CtrlSFToggle<CR>  
+inoremap <leader>t <Esc>:CtrlSFToggle<CR>
+
+let g:ctrlsf_auto_close = 0 "是否自动关闭
+"let g:ctrlsf_regex_pattern = 1
+"let g:ctrlsf_case_sensitive = 'no'
+"let g:ctrlsf_context = '-B 5 -A 3'
+"let g:ctrlsf_default_root = 'project'
+"let g:ctrlsf_indent = 2
+let g:ctrlsf_mapping = {
+            \ "next": "n",
+            \ "prev": "N",
+            \ }
+
+let g:ctrlsf_position = 'right'
+let g:ctrlsf_winsize = '50%'
+
+
+"Enter 打开光标所在文件，并将光标定位到打开前所在行
+"t - Like Enter but open file in a new tab.
+"p 
+"O 打开光标所在文件，且不关闭strlsf窗口
+"T - Lkie t but focus CtrlSF window instead of new opened tab.
+"q 关闭strlsf窗口
+"<C-J> 移动到下一个单词
+"<C-K> 移动到上一个单词
+"}"
+
+""multiple-cursors开始{
+"let g:multi_cursor_use_default_mapping=0
+"let g:multi_cursor_next_key='<C-n>'
+"let g:multi_cursor_prev_key='<C-p>'
+"let g:multi_cursor_skip_key='<C-x>'
+"let g:multi_cursor_quit_key='<Esc>'
+"let g:multi_cursor_start_key='<F6>'
+"let g:multi_cursor_start_key='<C-n>'
+"let g:multi_cursor_start_word_key='g<C-n>'
+"let g:multi_cursor_quit_key='<C-c>'
+"nnoremap <C-c> :call multiple_cursors#quit()<CR>
+"highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
+"highlight link multiple_cursors_visual Visual
+
+""let g:multi_cursor_exit_from_visual_mode = 1
+""let g:multi_cursor_exit_from_insert_mode= 1
+""let g:multi_cursor_insert_maps='{}'
+""}"
+
+
+"快速切换窗口"
+map <C-w> <C-w>w
+imap <C-w> <esc><C-w>w
+
+""indentLine开始{
+"let g:indentLine_enabled = 1
+"let g:indentLine_char = '┊'
+""let g:indentLine_char = 'c'
+""let g:indentLine_color_term = 239
+""let g:indentLine_indentLevel=20
+""let g:indentLine_color_tty_light = 7 " (default: 4)
+""let g:indentLine_color_dark = 1 " (default: 2)
+""set list listchars=tab:\¦\
+""}
+
+colorscheme molokai
+
+"自动补全选择框色彩配置
+hi Pmenu           ctermfg=161  ctermbg=255
+hi PmenuSel        ctermfg=255 ctermbg=242
+hi PmenuSbar                   ctermbg=232
+hi PmenuThumb      ctermfg=81

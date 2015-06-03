@@ -6,7 +6,7 @@ onoremap <buffer> <silent> ]] /\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+
 nnoremap <buffer> <silent> ]] /\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)/:nohls
 setlocal keymap=
 setlocal noarabic
-setlocal autoindent
+setlocal noautoindent
 setlocal nobinary
 setlocal bufhidden=
 setlocal buflisted
@@ -76,7 +76,7 @@ setlocal noscrollbind
 setlocal shiftwidth=4
 setlocal noshortname
 setlocal nosmartindent
-setlocal softtabstop=4
+setlocal softtabstop=0
 setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
@@ -90,7 +90,7 @@ setlocal syntax=php
 endif
 setlocal tabstop=4
 setlocal tags=
-setlocal textwidth=78
+setlocal textwidth=0
 setlocal thesaurus=
 setlocal nowinfixheight
 setlocal nowinfixwidth
@@ -98,41 +98,41 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 9,46fold
-47,69fold
-79,98fold
-149,149fold
-149,149fold
-149,149fold
-172,172fold
-166,196fold
+47,70fold
+72,91fold
+142,142fold
+142,142fold
+142,142fold
+166,166fold
+160,190fold
 9
 normal zo
 47
 normal zo
-79
+72
 normal zo
-149
+142
 normal zo
-149
+142
 normal zo
-149
+142
 normal zo
-149
+142
 normal zo
-149
+142
 normal zo
-166
-normal zo
-172
+160
 normal zo
 166
 normal zo
-let s:l = 42 - ((21 * winheight(0) + 20) / 41)
+160
+normal zo
+let s:l = 36 - ((19 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-42
-normal! 019l
+36
+normal! 025l
 lcd ~/wwwroot/front-web/application/controllers
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost

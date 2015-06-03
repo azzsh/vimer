@@ -18,7 +18,7 @@ setlocal cinwords=if,else,while,do,for,switch
 setlocal comments=s1:/*,mb:*,ex:*/,://,:#
 setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
-setlocal completefunc=neocomplcache#complete#manual_complete
+setlocal completefunc=neocomplcache#complete#auto_complete
 setlocal nocopyindent
 setlocal nocursorcolumn
 setlocal cursorline
@@ -81,7 +81,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%!Pl#Statusline(0,1)
+setlocal statusline=%!airline#statusline(1)
 setlocal suffixesadd=
 setlocal noswapfile
 setlocal synmaxcol=3000
@@ -96,12 +96,53 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 53 - ((36 * winheight(0) + 20) / 41)
+125
+normal zo
+125
+normal zo
+125
+normal zo
+125
+normal zo
+154
+normal zo
+154
+normal zo
+125
+normal zo
+172
+normal zo
+172
+normal zo
+172
+normal zo
+172
+normal zo
+180
+normal zo
+182
+normal zo
+182
+normal zo
+180
+normal zo
+213
+normal zo
+231
+normal zo
+240
+normal zo
+248
+normal zo
+172
+normal zo
+let s:l = 240 - ((28 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-53
+240
 normal! 0
+lcd ~/wwwroot/front-web/application/controllers
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

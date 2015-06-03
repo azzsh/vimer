@@ -18,7 +18,7 @@ setlocal cinwords=if,else,while,do,for,switch
 setlocal comments=s1:/*,mb:*,ex:*/,://,:#
 setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
-setlocal completefunc=neocomplcache#complete#manual_complete
+setlocal completefunc=neocomplcache#complete#auto_complete
 setlocal nocopyindent
 setlocal nocursorcolumn
 setlocal cursorline
@@ -62,7 +62,7 @@ setlocal matchpairs=(:),{:},[:],<:>
 setlocal modeline
 setlocal modifiable
 setlocal nrformats=octal,hex
-setlocal nonumber
+setlocal number
 setlocal numberwidth=4
 setlocal omnifunc=phpcomplete#CompletePHP
 setlocal path=
@@ -76,7 +76,7 @@ setlocal noscrollbind
 setlocal shiftwidth=4
 setlocal noshortname
 setlocal nosmartindent
-setlocal softtabstop=4
+setlocal softtabstop=0
 setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
@@ -90,7 +90,7 @@ setlocal syntax=php
 endif
 setlocal tabstop=4
 setlocal tags=
-setlocal textwidth=78
+setlocal textwidth=0
 setlocal thesaurus=
 setlocal nowinfixheight
 setlocal nowinfixwidth
@@ -108,18 +108,40 @@ normal zo
 normal zo
 44
 normal zo
-672
+345
 normal zo
-672
+345
+normal zo
+502
+normal zo
+511
+normal zo
+524
+normal zo
+531
+normal zo
+540
+normal zo
+540
+normal zo
+546
+normal zo
+531
+normal zo
+502
+normal zo
+676
+normal zo
+676
 normal zo
 17
 normal zo
-let s:l = 714 - ((42 * winheight(0) + 20) / 40)
+let s:l = 532 - ((30 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-714
-normal! 0
+532
+normal! 079l
 lcd ~/wwwroot/front-web/application/controllers
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost

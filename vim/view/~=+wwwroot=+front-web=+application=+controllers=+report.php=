@@ -6,7 +6,7 @@ onoremap <buffer> <silent> ]] /\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+
 nnoremap <buffer> <silent> ]] /\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)/:nohls
 setlocal keymap=
 setlocal noarabic
-setlocal autoindent
+setlocal noautoindent
 setlocal nobinary
 setlocal bufhidden=
 setlocal buflisted
@@ -62,7 +62,7 @@ setlocal matchpairs=(:),{:},[:],<:>
 setlocal modeline
 setlocal modifiable
 setlocal nrformats=octal,hex
-setlocal number
+setlocal nonumber
 setlocal numberwidth=4
 setlocal omnifunc=phpcomplete#CompletePHP
 setlocal path=
@@ -76,7 +76,7 @@ setlocal noscrollbind
 setlocal shiftwidth=4
 setlocal noshortname
 setlocal nosmartindent
-setlocal softtabstop=4
+setlocal softtabstop=0
 setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
@@ -90,7 +90,7 @@ setlocal syntax=php
 endif
 setlocal tabstop=4
 setlocal tags=
-setlocal textwidth=78
+setlocal textwidth=0
 setlocal thesaurus=
 setlocal nowinfixheight
 setlocal nowinfixwidth
@@ -98,15 +98,18 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 14,16fold
+79,104fold
 14
 normal zo
-let s:l = 1 - ((0 * winheight(0) + 20) / 41)
+79
+normal zo
+let s:l = 81 - ((20 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+81
 normal! 0
-lcd ~/wwwroot/front-web/application/controllers
+lcd ~/wwwroot/front-web/application/libraries/tcpdf
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

@@ -18,7 +18,7 @@ setlocal cinwords=if,else,while,do,for,switch
 setlocal comments=s1:/*,mb:*,ex:*/,://,:#
 setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
-setlocal completefunc=neocomplcache#complete#manual_complete
+setlocal completefunc=neocomplcache#complete#auto_complete
 setlocal nocopyindent
 setlocal nocursorcolumn
 setlocal cursorline
@@ -62,7 +62,7 @@ setlocal matchpairs=(:),{:},[:],<:>
 setlocal modeline
 setlocal modifiable
 setlocal nrformats=octal,hex
-setlocal number
+setlocal nonumber
 setlocal numberwidth=4
 setlocal omnifunc=phpcomplete#CompletePHP
 setlocal path=
@@ -81,7 +81,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%!Pl#Statusline(0,0)
+setlocal statusline=%!airline#statusline(1)
 setlocal suffixesadd=
 setlocal noswapfile
 setlocal synmaxcol=3000
@@ -98,18 +98,27 @@ setlocal wrap
 setlocal wrapmargin=0
 4
 normal zo
-54
+53
 normal zo
-54
+53
+normal zo
+198
+normal zo
+198
+normal zo
+293
+normal zo
+293
 normal zo
 4
 normal zo
-let s:l = 54 - ((35 * winheight(0) + 20) / 41)
+let s:l = 285 - ((25 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-54
+285
 normal! 0
+lcd ~/wwwroot/OrgCenter/application/controllers
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

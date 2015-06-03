@@ -18,7 +18,7 @@ setlocal cinwords=if,else,while,do,for,switch
 setlocal comments=s1:/*,mb:*,ex:*/,://,:#
 setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
-setlocal completefunc=
+setlocal completefunc=neocomplcache#complete#auto_complete
 setlocal nocopyindent
 setlocal nocursorcolumn
 setlocal cursorline
@@ -81,7 +81,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%!Pl#Statusline(0,0)
+setlocal statusline=%!airline#statusline(1)
 setlocal suffixesadd=
 setlocal noswapfile
 setlocal synmaxcol=3000
@@ -92,24 +92,153 @@ setlocal tabstop=4
 setlocal tags=
 setlocal textwidth=78
 setlocal thesaurus=
-setlocal nowinfixheight
+setlocal winfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 4
 normal zo
-23
+22
 normal zo
-23
+43
+normal zo
+45
+normal zo
+45
+normal zo
+43
+normal zo
+59
+normal zo
+59
+normal zo
+77
+normal zo
+77
+normal zo
+88
+normal zo
+88
+normal zo
+98
+normal zo
+99
+normal zo
+99
+normal zo
+98
+normal zo
+116
+normal zo
+119
+normal zo
+137
+normal zo
+138
+normal zo
+138
+normal zo
+137
+normal zo
+144
+normal zo
+144
+normal zo
+153
+normal zo
+167
+normal zo
+168
+normal zo
+169
+normal zo
+169
+normal zo
+168
+normal zo
+167
+normal zo
+153
+normal zo
+119
+normal zo
+22
+normal zo
+184
+normal zo
+200
+normal zo
+203
+normal zo
+207
+normal zo
+200
+normal zo
+236
+normal zo
+249
+normal zo
+249
+normal zo
+301
+normal zo
+316
+normal zo
+316
+normal zo
+335
+normal zo
+236
+normal zo
+390
+normal zo
+398
+normal zo
+402
+normal zo
+390
+normal zo
+418
+normal zo
+446
+normal zo
+447
+normal zo
+446
+normal zo
+451
+normal zo
+459
+normal zo
+418
+normal zo
+475
+normal zo
+475
+normal zo
+497
+normal zo
+497
+normal zo
+529
+normal zo
+551
+normal zo
+552
+normal zo
+551
+normal zo
+529
 normal zo
 4
 normal zo
-let s:l = 118 - ((59 * winheight(0) + 20) / 41)
+let s:l = 84 - ((26 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-118
-normal! 010l
+84
+normal! 09l
+lcd ~/wwwroot/front-web/application/controllers
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

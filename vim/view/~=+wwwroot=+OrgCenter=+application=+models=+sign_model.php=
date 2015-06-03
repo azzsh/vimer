@@ -18,7 +18,7 @@ setlocal cinwords=if,else,while,do,for,switch
 setlocal comments=s1:/*,mb:*,ex:*/,://,:#
 setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
-setlocal completefunc=
+setlocal completefunc=neocomplcache#complete#manual_complete
 setlocal nocopyindent
 setlocal nocursorcolumn
 setlocal cursorline
@@ -81,7 +81,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%!Pl#Statusline(0,0)
+setlocal statusline=%!airline#statusline(1)
 setlocal suffixesadd=
 setlocal noswapfile
 setlocal synmaxcol=3000
@@ -106,14 +106,55 @@ normal zo
 normal zo
 20
 normal zo
+65
+normal zo
+84
+normal zo
+84
+normal zo
+65
+normal zo
+109
+normal zo
+123
+normal zo
+127
+normal zo
+123
+normal zo
+130
+normal zo
+130
+normal zo
+109
+normal zo
+155
+normal zo
+156
+normal zo
+155
+normal zo
+170
+normal zo
+173
+normal zo
+183
+normal zo
+183
+normal zo
+173
+normal zo
+170
+normal zo
 10
 normal zo
-let s:l = 117 - ((56 * winheight(0) + 20) / 41)
+let s:l = 52 - ((22 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-117
-normal! 06l
+52
+normal! 0
+lcd ~/wwwroot/front-web/application/controllers
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

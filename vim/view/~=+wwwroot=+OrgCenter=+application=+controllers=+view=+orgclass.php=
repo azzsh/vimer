@@ -76,12 +76,12 @@ setlocal noscrollbind
 setlocal shiftwidth=4
 setlocal noshortname
 setlocal nosmartindent
-setlocal softtabstop=4
+setlocal softtabstop=0
 setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%!Pl#Statusline(0,0)
+setlocal statusline=%!airline#statusline(1)
 setlocal suffixesadd=
 setlocal noswapfile
 setlocal synmaxcol=3000
@@ -90,7 +90,7 @@ setlocal syntax=php
 endif
 setlocal tabstop=4
 setlocal tags=
-setlocal textwidth=78
+setlocal textwidth=0
 setlocal thesaurus=
 setlocal nowinfixheight
 setlocal nowinfixwidth
@@ -100,18 +100,77 @@ setlocal wrapmargin=0
 normal zo
 5
 normal zo
-85
+20
 normal zo
-85
+27
+normal zo
+31
+normal zo
+27
+normal zo
+20
+normal zo
+48
+normal zo
+61
+normal zo
+65
+normal zo
+61
+normal zo
+48
+normal zo
+82
+normal zo
+93
+normal zo
+82
+normal zo
+303
+normal zo
+318
+normal zo
+325
+normal zo
+326
+normal zo
+330
+normal zo
+326
+normal zo
+325
+normal zo
+340
+normal zo
+341
+normal zo
+340
+normal zo
+318
+normal zo
+303
+normal zo
+357
+normal zo
+357
+normal zo
+424
+normal zo
+434
+normal zo
+439
+normal zo
+424
 normal zo
 4
 normal zo
-let s:l = 110 - ((28 * winheight(0) + 20) / 41)
+let s:l = 114 - ((20 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-110
+114
 normal! 0
+lcd ~/wwwroot/front-web/application/controllers
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

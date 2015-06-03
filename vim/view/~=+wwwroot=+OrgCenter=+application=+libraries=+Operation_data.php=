@@ -81,7 +81,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%!Pl#Statusline(0,0)
+setlocal statusline=%!airline#statusline(1)
 setlocal suffixesadd=
 setlocal noswapfile
 setlocal synmaxcol=3000
@@ -100,22 +100,19 @@ setlocal wrapmargin=0
 normal zo
 9
 normal zo
-10
-normal zo
-9
-normal zo
 45
 normal zo
 45
 normal zo
 8
 normal zo
-let s:l = 60 - ((32 * winheight(0) + 17) / 35)
+let s:l = 61 - ((30 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-60
-normal! 010l
+61
+normal! 0
+lcd ~/wwwroot/front-web/application/controllers
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

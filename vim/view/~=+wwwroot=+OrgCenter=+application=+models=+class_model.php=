@@ -18,7 +18,7 @@ setlocal cinwords=if,else,while,do,for,switch
 setlocal comments=s1:/*,mb:*,ex:*/,://,:#
 setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
-setlocal completefunc=
+setlocal completefunc=neocomplcache#complete#auto_complete
 setlocal nocopyindent
 setlocal nocursorcolumn
 setlocal cursorline
@@ -76,12 +76,12 @@ setlocal noscrollbind
 setlocal shiftwidth=4
 setlocal noshortname
 setlocal nosmartindent
-setlocal softtabstop=4
+setlocal softtabstop=0
 setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%!Pl#Statusline(0,0)
+setlocal statusline=%!airline#statusline(1)
 setlocal suffixesadd=
 setlocal noswapfile
 setlocal synmaxcol=3000
@@ -90,7 +90,7 @@ setlocal syntax=php
 endif
 setlocal tabstop=4
 setlocal tags=
-setlocal textwidth=78
+setlocal textwidth=0
 setlocal thesaurus=
 setlocal nowinfixheight
 setlocal nowinfixwidth
@@ -98,32 +98,241 @@ setlocal wrap
 setlocal wrapmargin=0
 9
 normal zo
+10
+normal zo
 26
 normal zo
 27
 normal zo
 26
 normal zo
-325
+37
 normal zo
-330
+44
 normal zo
-335
+57
 normal zo
-335
+37
 normal zo
-330
+70
 normal zo
-325
+72
+normal zo
+76
+normal zo
+80
+normal zo
+83
+normal zo
+85
+normal zo
+87
+normal zo
+92
+normal zo
+85
+normal zo
+80
+normal zo
+106
+normal zo
+70
+normal zo
+121
+normal zo
+123
+normal zo
+127
+normal zo
+121
+normal zo
+137
+normal zo
+146
+normal zo
+148
+normal zo
+153
+normal zo
+154
+normal zo
+153
+normal zo
+159
+normal zo
+162
+normal zo
+165
+normal zo
+168
+normal zo
+171
+normal zo
+174
+normal zo
+176
+normal zo
+180
+normal zo
+183
+normal zo
+185
+normal zo
+187
+normal zo
+192
+normal zo
+197
+normal zo
+185
+normal zo
+180
+normal zo
+204
+normal zo
+227
+normal zo
+146
+normal zo
+247
+normal zo
+248
+normal zo
+247
+normal zo
+263
+normal zo
+271
+normal zo
+272
+normal zo
+271
+normal zo
+286
+normal zo
+294
+normal zo
+296
+normal zo
+299
+normal zo
+294
+normal zo
+318
+normal zo
+319
+normal zo
+320
+normal zo
+321
+normal zo
+320
+normal zo
+319
+normal zo
+318
+normal zo
+332
+normal zo
+334
+normal zo
+337
+normal zo
+340
+normal zo
+342
+normal zo
+344
+normal zo
+342
+normal zo
+337
+normal zo
+351
+normal zo
+353
+normal zo
+351
+normal zo
+332
+normal zo
+365
+normal zo
+367
+normal zo
+370
+normal zo
+372
+normal zo
+370
+normal zo
+382
+normal zo
+365
+normal zo
+393
+normal zo
+394
+normal zo
+393
+normal zo
+405
+normal zo
+413
+normal zo
+421
+normal zo
+430
+normal zo
+431
+normal zo
+433
+normal zo
+436
+normal zo
+438
+normal zo
+441
+normal zo
+443
+normal zo
+446
+normal zo
+430
+normal zo
+461
+normal zo
+470
+normal zo
+478
+normal zo
+487
+normal zo
+488
+normal zo
+487
+normal zo
+498
+normal zo
+507
+normal zo
+517
+normal zo
+521
+normal zo
+517
+normal zo
+527
 normal zo
 9
 normal zo
-let s:l = 24 - ((23 * winheight(0) + 20) / 41)
+let s:l = 210 - ((19 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-24
+210
 normal! 0
+lcd ~/wwwroot/front-web/application/controllers
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

@@ -152,12 +152,12 @@ normal zo
 normal zo
 98
 normal zo
-let s:l = 104 - ((34 * winheight(0) + 20) / 40)
+let s:l = 18 - ((17 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-104
-normal! 018l
+18
+normal! 0
 lcd ~/wwwroot/front-web/application/controllers
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
