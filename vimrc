@@ -5,13 +5,7 @@ endif
 
 
 "{Vundle配置
-"set rtp+=$VIM/vimfiles/bundle/vundle/
-"call vundle#rc('$VIM/vimfiles/bundle')
-<<<<<<< HEAD
-set rtp+=$HOME/.vim/vimfiles/bundle/vundle/      
-=======
 set rtp+=$HOME/.vim/vimfiles/bundle/vundle/
->>>>>>> cb4cdb3d3b2741b36638922f0c39d2a76e2ace26
 call vundle#rc($HOME.'/.vim/vimfiles/bundle')
 Bundle 'gmarik/vundle'
 Bundle 'https://github.com/bling/vim-airline.git'
