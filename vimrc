@@ -291,9 +291,9 @@ let g:neocomplcache_enable_smart_case = 1
 "let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_enable_auto_select = 1   "自动选择
 "let g:neocomplcache_lock_buffer_name_pattern = '\*bxk11\*'
-let g:neocomplcache_max_list =10 
+let g:neocomplcache_max_list = 20
 let g:neocomplcache_auto_completion_start_length =1 "输入多少字符时弹出自动补全菜单
-"let g:neocomplcache_manual_completion_start_length = 10 "输入多少字符时弹出手动补全菜单
+let g:neocomplcache_manual_completion_start_length = 2 "输入多少字符时弹出手动补全菜单
 let g:neocomplcache_enable_ignore_case =1 "是否忽略大小写
 let g:neocomplcache_enable_cursor_hold_i=0
 "}
@@ -548,7 +548,13 @@ imap <C-w> <esc><C-w>w
 colorscheme molokai
 
 "自动补全选择框色彩配置
-hi Pmenu           ctermfg=161  ctermbg=255
-hi PmenuSel        ctermfg=255 ctermbg=242
-hi PmenuSbar                   ctermbg=232
-hi PmenuThumb      ctermfg=81
+"待选项颜色
+hi Pmenu           ctermfg=232 ctermbg=208 cterm=underline
+"hi Pmenu           ctermfg=232 ctermbg=154 cterm=underline
+"选中行颜色
+hi PmenuSel        ctermfg=232 ctermbg=161  cterm=bold
+"滚动条颜色
+hi PmenuSbar                   ctermbg=214
+"滚动条底部颜色
+hi PmenuThumb      ctermfg=53 
+
