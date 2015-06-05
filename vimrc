@@ -31,7 +31,8 @@ Bundle 'https://github.com/altercation/vim-colors-solarized.git'
 "Bundle 'https://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git'
 "Bundle 'https://github.com/alvan/vim-assistant.git' "用来提示带参数的函数 
 "Bundle 'https://github.com/vim-scripts/VisIncr.git'
-Bundle "https://github.com/tomasr/molokai.git"
+"Bundle "https://github.com/tomasr/molokai.git"
+Bundle "https://github.com/azzsh/desire.git"
 "Bundle 'https://github.com/tpope/vim-fugitive.git'
 Bundle 'dyng/ctrlsf.vim'
 "Bundle 'https://github.com/terryma/vim-multiple-cursors.git'
@@ -266,7 +267,7 @@ au BufNewFile,BufRead *.wiki set filetype=vim
 "hi LineNr  guibg=Lightpink
 
 "搜索单词色彩配置{
-""hi Search  guibg=Palegreen term=underline ctermfg=1 ctermbg=1 gui=bold guifg=Darkgreen
+hi Search ctermfg=232   ctermbg=208  cterm=bold,underline
 "}
 "ctrlp项目文件查找 插件配置{
 ""打开文件列表
@@ -546,15 +547,4 @@ imap <C-w> <esc><C-w>w
 ""}
 
 colorscheme molokai
-
-"自动补全选择框色彩配置
-"待选项颜色
-hi Pmenu           ctermfg=232 ctermbg=208 cterm=underline
-"hi Pmenu           ctermfg=232 ctermbg=154 cterm=underline
-"选中行颜色
-hi PmenuSel        ctermfg=232 ctermbg=161  cterm=bold
-"滚动条颜色
-hi PmenuSbar                   ctermbg=214
-"滚动条底部颜色
-hi PmenuThumb      ctermfg=53 
 
