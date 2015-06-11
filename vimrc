@@ -424,10 +424,10 @@ endif
 
 "dark simple tomorrow powerlineish
 let g:airline_theme             = 'dark' "修改airline主题
-"let g:airline_left_sep = '►'
-"let g:airline_right_sep = '◄'
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+let g:airline_left_sep = '►'
+let g:airline_right_sep = '◄'
+"let g:airline_left_sep = ''
+"let g:airline_right_sep = ''
 let g:airline_symbols.linenr = '☺'
 let g:airline_symbols.branch = '๑'
 let g:airline_symbols.paste = '粘贴'
@@ -547,4 +547,8 @@ imap <C-w> <esc><C-w>w
 ""}
 
 colorscheme molokai
+
+"缩进之后回到当前行
+map <F5> gg=G<C-o><C-o>
+imap <F5> <esc>gg=G<C-o><C-o>
 
