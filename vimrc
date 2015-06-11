@@ -438,10 +438,10 @@ let g:airline_symbols.readonly = '只读'
 "vimwiki开始{
 let g:vimwiki_use_mouse = 1
 "auto_export  是否在词条文件保存时就输出html  这个会让保存大词条比较慢 
-let g:vimwiki_list = [{'path': $HOME.'/blog/wikiCode/',
+let g:vimwiki_list = [{'path': $HOME.'/wiki/',
             \ 'auto_export': 1,
             \ 'syntax': 'default',
-            \ 'path_html': $HOME.'/blog'}]
+            \ 'path_html': $HOME.'/wiki/html'}]
 " 对中文用户来说，我们并不怎么需要驼峰英文成为维基词条
 let g:vimwiki_camel_case = 0
 " 标记为完成的 checklist 项目会有特别的颜色
