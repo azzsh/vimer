@@ -18,7 +18,7 @@ setlocal cinwords=if,else,while,do,for,switch
 setlocal comments=s1:/*,mb:*,ex:*/,://,:#
 setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
-setlocal completefunc=neocomplcache#complete#auto_complete
+setlocal completefunc=neocomplcache#complete#manual_complete
 setlocal nocopyindent
 setlocal nocursorcolumn
 setlocal cursorline
@@ -96,19 +96,11 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-4
-normal zo
-44
-normal zo
-44
-normal zo
-4
-normal zo
-let s:l = 99 - ((40 * winheight(0) + 20) / 41)
+let s:l = 312 - ((44 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-99
+312
 normal! 0
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost

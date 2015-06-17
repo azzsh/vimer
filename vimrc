@@ -552,3 +552,10 @@ colorscheme molokai
 map <F5> gg=G<C-o><C-o>
 imap <F5> <esc>gg=G<C-o><C-o>
 
+"对单词增加双引号
+map <leader>" ciw"<esc>p
+map <leader>' ciw'<esc>p
+map <leader>[' ciw['<esc>p
+
+"删除^M
+map <leader>M :1,$s/\r//g<cr><C-o><C-o>

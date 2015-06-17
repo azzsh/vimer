@@ -42,7 +42,7 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=qrowcb
+setlocal formatoptions=lqrowcb
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal grepprg=
 setlocal iminsert=0
@@ -76,7 +76,7 @@ setlocal noscrollbind
 setlocal shiftwidth=4
 setlocal noshortname
 setlocal nosmartindent
-setlocal softtabstop=0
+setlocal softtabstop=4
 setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
@@ -90,7 +90,7 @@ setlocal syntax=php
 endif
 setlocal tabstop=4
 setlocal tags=
-setlocal textwidth=0
+setlocal textwidth=78
 setlocal thesaurus=
 setlocal nowinfixheight
 setlocal nowinfixwidth
@@ -98,18 +98,464 @@ setlocal wrap
 setlocal wrapmargin=0
 4
 normal zo
-6
+5
+normal zo
+26
+normal zo
+35
+normal zo
+38
+normal zo
+47
+normal zo
+49
+normal zo
+51
+normal zo
+53
+normal zo
+49
+normal zo
+47
+normal zo
+63
+normal zo
+66
+normal zo
+63
+normal zo
+81
+normal zo
+85
+normal zo
+81
+normal zo
+92
+normal zo
+96
+normal zo
+92
+normal zo
+102
+normal zo
+103
+normal zo
+106
+normal zo
+108
+normal zo
+103
+normal zo
+102
+normal zo
+112
+normal zo
+120
+normal zo
+123
+normal zo
+127
+normal zo
+133
+normal zo
+138
+normal zo
+141
+normal zo
+142
+normal zo
+143
+normal zo
+142
+normal zo
+141
+normal zo
+148
+normal zo
+149
+normal zo
+151
+normal zo
+148
+normal zo
+157
+normal zo
+158
+normal zo
+164
+normal zo
+166
+normal zo
+171
+normal zo
+172
+normal zo
+173
+normal zo
+175
+normal zo
+173
+normal zo
+172
+normal zo
+171
+normal zo
+183
+normal zo
+157
+normal zo
+123
+normal zo
+26
+normal zo
+204
+normal zo
+207
+normal zo
+208
+normal zo
+207
+normal zo
+216
+normal zo
+217
+normal zo
+216
+normal zo
+226
+normal zo
+227
+normal zo
+226
+normal zo
+238
+normal zo
+239
+normal zo
+238
+normal zo
+249
+normal zo
+250
+normal zo
+249
+normal zo
+260
+normal zo
+261
+normal zo
+263
+normal zo
+260
+normal zo
+271
+normal zo
+272
+normal zo
+271
+normal zo
+277
+normal zo
+280
+normal zo
+281
+normal zo
+280
+normal zo
+289
+normal zo
+290
+normal zo
+289
+normal zo
+204
+normal zo
+304
+normal zo
+320
+normal zo
+321
+normal zo
+323
+normal zo
+321
+normal zo
+320
+normal zo
+333
+normal zo
+334
+normal zo
+336
+normal zo
+334
+normal zo
+333
+normal zo
+347
+normal zo
+348
+normal zo
+350
+normal zo
+348
+normal zo
+347
+normal zo
+364
+normal zo
+365
+normal zo
+366
+normal zo
+368
+normal zo
+366
+normal zo
+365
+normal zo
+364
+normal zo
+384
+normal zo
+385
+normal zo
+384
+normal zo
+395
+normal zo
+396
+normal zo
+395
+normal zo
+406
+normal zo
+408
+normal zo
+411
+normal zo
+412
+normal zo
+413
+normal zo
+414
+normal zo
+413
+normal zo
+412
+normal zo
+411
+normal zo
+431
+normal zo
+432
+normal zo
+434
+normal zo
+431
+normal zo
+441
+normal zo
+442
+normal zo
+441
+normal zo
+447
+normal zo
+450
+normal zo
+451
+normal zo
+450
+normal zo
+467
+normal zo
+469
+normal zo
+472
+normal zo
+469
+normal zo
+467
+normal zo
+481
+normal zo
+482
+normal zo
+484
+normal zo
+482
+normal zo
+481
+normal zo
+491
+normal zo
+304
+normal zo
+500
+normal zo
+512
+normal zo
+515
+normal zo
+522
+normal zo
+525
+normal zo
+537
+normal zo
+577
+normal zo
+592
+normal zo
+593
+normal zo
+596
+normal zo
+592
+normal zo
+611
+normal zo
+618
+normal zo
+512
+normal zo
+630
+normal zo
+645
+normal zo
+652
+normal zo
+654
+normal zo
+645
+normal zo
+666
+normal zo
+674
+normal zo
+678
+normal zo
+666
+normal zo
+694
+normal zo
+699
+normal zo
+722
+normal zo
+723
+normal zo
+722
+normal zo
+727
+normal zo
+735
+normal zo
+694
+normal zo
+751
+normal zo
+756
+normal zo
+758
+normal zo
+751
+normal zo
+773
+normal zo
+793
+normal zo
+795
+normal zo
+773
+normal zo
+805
+normal zo
+827
+normal zo
+828
+normal zo
+827
+normal zo
+832
+normal zo
+839
+normal zo
+840
+normal zo
+843
+normal zo
+847
+normal zo
+849
+normal zo
+851
+normal zo
+853
+normal zo
+856
+normal zo
+851
+normal zo
+847
+normal zo
+860
+normal zo
+839
+normal zo
+875
+normal zo
+879
+normal zo
+881
+normal zo
+883
+normal zo
+885
+normal zo
+887
+normal zo
+889
+normal zo
+891
+normal zo
+893
+normal zo
+879
+normal zo
+875
+normal zo
+805
+normal zo
+914
+normal zo
+928
+normal zo
+932
+normal zo
+936
+normal zo
+914
+normal zo
+947
+normal zo
+959
+normal zo
+962
+normal zo
+964
+normal zo
+959
 normal zo
 4
 normal zo
-15
-normal zo
-let s:l = 13 - ((12 * winheight(0) + 20) / 40)
+let s:l = 961 - ((0 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-13
-normal! 020l
+961
+normal! 032687l
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :
