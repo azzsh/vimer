@@ -26,17 +26,16 @@ Bundle 'https://github.com/vimwiki/vimwiki.git'
 Bundle 'https://github.com/vim-scripts/grep.vim.git'
 "Bundle 'https://github.com/vim-scripts/FuzzyFinder.git'
 "Bundle 'https://github.com/vim-scripts/L9.git'
-Bundle 'https://github.com/altercation/vim-colors-solarized.git'
+"Bundle 'https://github.com/altercation/vim-colors-solarized.git'
 "Bundle 'https://github.com/vim-scripts/dbext.vim.git'
 "Bundle 'https://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git'
 "Bundle 'https://github.com/alvan/vim-assistant.git' "用来提示带参数的函数 
 "Bundle 'https://github.com/vim-scripts/VisIncr.git'
-"Bundle "https://github.com/tomasr/molokai.git"
 Bundle "https://github.com/azzsh/desire.git"
 "Bundle 'https://github.com/tpope/vim-fugitive.git'
 Bundle 'dyng/ctrlsf.vim'
 "Bundle 'https://github.com/terryma/vim-multiple-cursors.git'
-"html标签高粱匹配
+"html标签匹配
 Bundle 'https://github.com/vim-scripts/MatchTag.git'
 "Bundle 'https://github.com/vim-scripts/indentLine.vim.git'
 
@@ -231,7 +230,6 @@ set autoindent "开启自动缩进
 set writebackup "设置无备份文件"
 syntax enable
 set nobackup
-filetype plugin indent on    
 set ts=4
 set scrolloff=2 
 set fileencodings=ucs-bom,utf-8,gbk,cp936,big5,euc-jp,euc-bk,latin1,gb2312,gb18030 "打开支持文件编码,设置好之后一般不用修改
@@ -375,16 +373,16 @@ set pastetoggle=<F9>
 
 
 "语法折叠
-set foldmethod=indent "设置折叠方式 默认模式：mamual
+"set foldmethod=indent "设置折叠方式 默认模式：mamual
 "set foldmethod=syntax "设置折叠方式 默认模式：mamual
 "let html_ignore_folding=1 "生成html时忽略折叠
-set foldenable
+"set foldenable
 "设置折叠级别
-set foldlevel=2
+"set foldlevel=2
 "每次关闭文件时自动执行保存语法折叠信息
-autocmd BufWinLeave * if expand('%') != '' && &buftype == '' | mkview | endif
+"autocmd BufWinLeave * if expand('%') != '' && &buftype == '' | mkview | endif
 ""每次打开文件时自动加载语法折叠信息
-autocmd BufRead     * if expand('%') != '' && &buftype == '' | silent loadview | endif
+"autocmd BufRead     * if expand('%') != '' && &buftype == '' | silent loadview | endif
 
 ""mark插件配置 高亮显示光标所在单词以及全文相同单词 开始{
 ""添加或取消一个单词标记

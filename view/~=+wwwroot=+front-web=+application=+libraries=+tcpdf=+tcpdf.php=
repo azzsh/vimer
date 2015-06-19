@@ -18,7 +18,7 @@ setlocal cinwords=if,else,while,do,for,switch
 setlocal comments=s1:/*,mb:*,ex:*/,://,:#
 setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
-setlocal completefunc=
+setlocal completefunc=neocomplcache#complete#manual_complete
 setlocal nocopyindent
 setlocal nocursorcolumn
 setlocal cursorline
@@ -35,9 +35,9 @@ setlocal foldcolumn=0
 setlocal foldenable
 setlocal foldexpr=0
 setlocal foldignore=#
-setlocal foldlevel=2
+setlocal foldlevel=0
 setlocal foldmarker={{{,}}}
-setlocal foldmethod=indent
+setlocal foldmethod=manual
 setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
@@ -96,30 +96,13 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-4
-normal zo
-503
-normal zo
-503
-normal zo
-538
-normal zo
-538
-normal zo
-561
-normal zo
-563
-normal zo
-561
-normal zo
-4
-normal zo
-let s:l = 545 - ((26 * winheight(0) + 20) / 40)
+silent! normal! zE
+let s:l = 24473 - ((31 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-545
-normal! 022l
+24473
+normal! 0
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :
