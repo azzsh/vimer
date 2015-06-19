@@ -197,8 +197,6 @@ endf
 
 "grep查找
 map <leader>f <esc>:Rgrep<CR>
-imap <leader>f <esc>:Rgrep<CR>
-"
 
 "Taglist插件设置{
 let Tlist_Exit_OnlyWindow = 1   "如果taglist窗口是最后一个窗口，则退出vim let Tlist_Use_Right_Window = 1  "在右侧窗口中显示taglist窗口 
@@ -460,10 +458,8 @@ map <S-F4> :VimwikiAll2HTML<cr>
 map <leader>v :VimwikiRenameLink<cr> 
 " calendar
 map <leader>c :Calendar<cr> 
-imap <leader>c <esc>:Calendar<cr> 
 "创建wiki表格
 map <leader>t :VimwikiTable 2 2<cr>jla
-imap <leader>t <br>:VimwikiTable 2 2<cr>jla
 "dac 删除一列
 "yac 复制一列
 "wimwiki结束}
@@ -483,8 +479,7 @@ nmap     <leader>p <Plug>CtrlSFPwordPath
 "nnoremap <leader>o :CtrlSFOpen<CR> 
 
 "打开或关闭窗口 
-nnoremap <leader>t :CtrlSFToggle<CR>  
-inoremap <leader>t <Esc>:CtrlSFToggle<CR>
+map <leader>t :CtrlSFToggle<CR>  
 
 let g:ctrlsf_auto_close = 0 "是否自动关闭
 "let g:ctrlsf_regex_pattern = 1
