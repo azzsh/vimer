@@ -7,9 +7,22 @@ endif
 "{Vundle配置
 set rtp+=$HOME/.vim/vimfiles/bundle/vundle/
 call vundle#rc($HOME.'/.vim/vimfiles/bundle')
+"Bundle 'https://github.com/andy-morris/CurrentWord.git'
+"Bundle 'https://github.com/vim-scripts/TxtBrowser.git'
+"Bundle 'https://github.com/vim-scripts/Mark.git'
+"Bundle 'https://github.com/vim-scripts/FuzzyFinder.git'
+"Bundle 'https://github.com/vim-scripts/L9.git'
+"Bundle 'https://github.com/altercation/vim-colors-solarized.git'
+"Bundle 'https://github.com/vim-scripts/dbext.vim.git'
+"Bundle 'https://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git'
+"Bundle 'https://github.com/alvan/vim-assistant.git' "用来提示带参数的函数 
+"Bundle 'https://github.com/vim-scripts/VisIncr.git'
+"Bundle 'https://github.com/tpope/vim-fugitive.git'
+"Bundle 'https://github.com/terryma/vim-multiple-cursors.git'
+"Bundle 'https://github.com/vim-scripts/indentLine.vim.git'
+"Bundle 'https://github.com/Lokaltog/vim-powerline.git'
 Bundle 'gmarik/vundle'
 Bundle 'https://github.com/bling/vim-airline.git'
-"Bundle 'https://github.com/Lokaltog/vim-powerline.git'
 Bundle 'https://github.com/scrooloose/nerdtree.git'
 Bundle 'https://github.com/scrooloose/nerdcommenter.git'
 Bundle 'scrooloose/syntastic'
@@ -20,25 +33,11 @@ Bundle 'https://github.com/mattn/calendar-vim.git'
 Bundle 'https://github.com/Shougo/neocomplcache.vim.git'
 Bundle 'https://github.com/msanders/snipmate.vim.git'
 Bundle 'https://github.com/vimwiki/vimwiki.git'
-"Bundle 'https://github.com/andy-morris/CurrentWord.git'
-"Bundle 'https://github.com/vim-scripts/TxtBrowser.git'
-"Bundle 'https://github.com/vim-scripts/Mark.git'
 Bundle 'https://github.com/vim-scripts/grep.vim.git'
-"Bundle 'https://github.com/vim-scripts/FuzzyFinder.git'
-"Bundle 'https://github.com/vim-scripts/L9.git'
-"Bundle 'https://github.com/altercation/vim-colors-solarized.git'
-"Bundle 'https://github.com/vim-scripts/dbext.vim.git'
-"Bundle 'https://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git'
-"Bundle 'https://github.com/alvan/vim-assistant.git' "用来提示带参数的函数 
-"Bundle 'https://github.com/vim-scripts/VisIncr.git'
 Bundle "https://github.com/azzsh/desire.git"
-"Bundle 'https://github.com/tpope/vim-fugitive.git'
 Bundle 'dyng/ctrlsf.vim'
-"Bundle 'https://github.com/terryma/vim-multiple-cursors.git'
 "html标签匹配
 Bundle 'https://github.com/vim-scripts/MatchTag.git'
-"Bundle 'https://github.com/vim-scripts/indentLine.vim.git'
-
 filetype plugin indent on     " required! 
 "}
 
@@ -103,10 +102,8 @@ let NERDTreeWinPos='right'                                  " 窗口位置（'le
 let NERDTreeWinSize=60                                      " 窗口宽度
 let NERDTreeQuitOnOpen = 1                                  " 当通过NERD Tree打开文件自动退出NERDTree界面
 let NERDTreeIgnore=['\.exe$','\.gif$','\.png$','\.jpeg$','\.swf$','\.ttc$','^CVS$','^SVN$','^.jpg$','^.bmp$','^.doc$','^.xlsx$']
-"inoremap <silent>; <esc>:NERDTreeToggle<cr>
-noremap <silent>q <esc>:NERDTreeToggle<cr>
-"inoremap <leader>t :NERDTree 
-"noremap <leader>t :NERDTree 
+map <silent>q <esc>:NERDTreeToggle<cr>
+"map <leader>t :NERDTree 
 "NERDTree提供了丰富的键盘操作方式来浏览和打开文件，我简单介绍一些常用的快捷键：
 "和编辑文件一样，通过h j k l移动光标定位
 "o 打开关闭文件或者目录，如果是文件的话，光标出现在打开的文件中
@@ -129,8 +126,7 @@ noremap <silent>q <esc>:NERDTreeToggle<cr>
 "B bookmarks (on)
 "}
 "bufexplorer插件配置{
-"inoremap <silent><A-q> <esc>:BufExplorer<cr>
-noremap <silent>f <esc>:BufExplorer<cr>
+map <silent>f <esc>:BufExplorer<cr>
 "}
 
 "NERD_commenter注释、取消注释 插件配置{
@@ -155,15 +151,15 @@ imap <F3> <esc><leader>cA
 "
 
 "括号自动补全开始{
-inoremap ( ()<Esc>i
-inoremap [ []<Esc>i
-inoremap { {}<Esc>i
-autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
-inoremap ) <c-r>=ClosePair(')')<CR>
-inoremap ] <c-r>=ClosePair(']')<CR>
-inoremap } <c-r>=ClosePair('}')<CR>
-inoremap " <c-r>=QuoteDelim('"')<CR>
-inoremap ' <c-r>=QuoteDelim("'")<CR>
+imap ( ()<Esc>i
+imap [ []<Esc>i
+imap { {}<Esc>i
+autocmd Syntax html,vim imap < <lt>><Esc>i| imap > <c-r>=ClosePair('>')<CR>
+imap ) <c-r>=ClosePair(')')<CR>
+imap ] <c-r>=ClosePair(']')<CR>
+imap } <c-r>=ClosePair('}')<CR>
+imap " <c-r>=QuoteDelim('"')<CR>
+imap ' <c-r>=QuoteDelim("'")<CR>
 function ClosePair(char)
     if getline('.')[col('.') - 1] == a:char
         return "\<Right>"
@@ -214,9 +210,9 @@ let Tlist_Auto_Update=1     "打开/禁止taglist在打开新文件或修改文�
 let Tlist_Inc_Winwidth=0      "显示标签列表窗口时允许/禁止扩展Vim窗口宽度
 let Tlist_Compact_Format=1 "减少标签列表窗口中的空白行
 "let Tlist_Display_Prototype=1 "是否在标签列表窗口用标签原型替代标签名
-"inoremap <silent> <A-e> <esc>:Tlist<cr>
+"imap <silent> <A-e> <esc>:Tlist<cr>
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-noremap ` <esc>:Tlist<cr>
+map ` <esc>:Tlist<cr>
 "}
 "'}"
 
@@ -228,7 +224,6 @@ set ambiwidth=double "防止特殊符号无法正常显示
 "set et "设置所有tab替换为空格
 set autoindent "开启自动缩进
 set writebackup "设置无备份文件"
-syntax enable
 set nobackup
 set ts=4
 set scrolloff=2 
@@ -252,7 +247,7 @@ autocmd BufRead     * if expand('%') != '' && &buftype == '' | silent loadview |
 "hi Number          guifg=#AE81FF
 
 "取消查询结果高亮显示{
-noremap <silent><leader>z <esc>:nohl<cr>
+map <silent><leader>z <esc>:nohl<cr>
 ""}
 "让txt文本调用css文件的高亮配置规则"
 au BufNewFile,BufRead *.txt set filetype=vim
@@ -267,7 +262,7 @@ hi Search ctermfg=232   ctermbg=208  cterm=bold,underline
 "}
 "ctrlp项目文件查找 插件配置{
 ""打开文件列表
-noremap <silent>m <esc>:CtrlPMRUFiles<cr>
+map <silent>m <esc>:CtrlPMRUFiles<cr>
 "}"
 
 "powerline状态栏增强插件 设置{
@@ -303,8 +298,7 @@ fun! RReplace()
     endif
     unlet! s:replace
 endfunction
-inoremap <leader>s <esc>:call RReplace()<cr>
-noremap <leader>s <esc>:call RReplace()<cr>
+map <leader>s <esc>:call RReplace()<cr>
 "}
 "搜索逐个替换{
 fun! SReplace() 
@@ -316,8 +310,7 @@ fun! SReplace()
     unlet! s:search
     unlet! s:replace
 endfunction
-inoremap <leader>d <esc>:call SReplace()<cr>
-noremap <leader>d <esc>:call SReplace()<cr>
+map <leader>d <esc>:call SReplace()<cr>
 "}
 "替换当前光标下的单词为剪贴板上的单词{
 nmap s <esc>diw<esc>h<esc>"0p<space>
@@ -336,8 +329,7 @@ map gd gd<C-o>
 "}
 
 "去空行
-nnoremap <leader>l <esc>:g/^\s*$/d<CR> 
-inoremap <leader>l <esc>:g/^\s*$/d<CR> 
+map <leader>l <esc>:g/^\s*$/d<CR> 
 
 "关闭当前文件
 map <S-x> <esc>:bd<CR>
@@ -356,8 +348,8 @@ let g:syntastic_php_checkers = ['php'] "设置检查类型
 
 
 
-nnoremap <silent> <F10>  <Esc>:call ToggleQuickfix()<CR>
-inoremap <silent> <F10>  <Esc>:call ToggleQuickfix()<CR>
+map <silent><F10>  <Esc>:call ToggleQuickfix()<CR>
+imap <silent><F10>  <Esc>:call ToggleQuickfix()<CR>
 function! ToggleQuickfix()
     if (!exists("s:is_quickfix_open"))
         let s:is_quickfix_open=0
@@ -474,7 +466,7 @@ vmap     <leader>F <Plug>CtrlSFVwordExec
 "搜索当前光标下单词
 nmap     <leader>n <Plug>CtrlSFCwordPath 
 nmap     <leader>p <Plug>CtrlSFPwordPath 
-"nnoremap <leader>o :CtrlSFOpen<CR> 
+"map <leader>o :CtrlSFOpen<CR> 
 
 "打开或关闭窗口 
 map <leader>t :CtrlSFToggle<CR>  
@@ -514,7 +506,7 @@ let g:ctrlsf_winsize = '50%'
 "let g:multi_cursor_start_key='<C-n>'
 "let g:multi_cursor_start_word_key='g<C-n>'
 "let g:multi_cursor_quit_key='<C-c>'
-"nnoremap <C-c> :call multiple_cursors#quit()<CR>
+"map <C-c> :call multiple_cursors#quit()<CR>
 "highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
 "highlight link multiple_cursors_visual Visual
 
@@ -552,3 +544,6 @@ map <leader>[' ciw['<esc>p
 
 "删除^M
 map <leader>M :1,$s/\r//g<cr><C-o><C-o>
+
+map <C-A> ggVG$"+y
+vmap <C-c> "+y
