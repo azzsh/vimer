@@ -17,7 +17,7 @@ call vundle#rc($HOME.'/.vim/vimfiles/bundle')
 "Bundle 'https://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git'
 "Bundle 'https://github.com/alvan/vim-assistant.git' "用来提示带参数的函数 
 "Bundle 'https://github.com/vim-scripts/VisIncr.git'
-"Bundle 'https://github.com/tpope/vim-fugitive.git'
+Bundle 'https://github.com/tpope/vim-fugitive.git'
 "Bundle 'https://github.com/terryma/vim-multiple-cursors.git'
 "Bundle 'https://github.com/vim-scripts/indentLine.vim.git'
 "Bundle 'https://github.com/Lokaltog/vim-powerline.git'
@@ -38,6 +38,7 @@ Bundle "https://github.com/azzsh/desire.git"
 Bundle 'dyng/ctrlsf.vim'
 "html标签匹配
 Bundle 'https://github.com/vim-scripts/MatchTag.git'
+Bundle 'luochen1990/rainbow'
 filetype plugin indent on     " required! 
 "}
 
@@ -99,7 +100,7 @@ let NERDTreeShowFiles=1                                     " 是否默认显示
 let NERDTreeShowHidden=0                                    " 是否默认显示隐藏文件
 let NERDTreeShowLineNumbers=0                               " 是否默认显示行号
 let NERDTreeWinPos='right'                                  " 窗口位置（'left' or 'right'）
-let NERDTreeWinSize=60                                      " 窗口宽度
+let NERDTreeWinSize=30                                      " 窗口宽度
 let NERDTreeQuitOnOpen = 1                                  " 当通过NERD Tree打开文件自动退出NERDTree界面
 let NERDTreeIgnore=['\.exe$','\.gif$','\.png$','\.jpeg$','\.swf$','\.ttc$','^CVS$','^SVN$','^.jpg$','^.bmp$','^.doc$','^.xlsx$']
 map <silent>q <esc>:NERDTreeToggle<cr>
@@ -194,13 +195,14 @@ endf
 map <leader>f <esc>:Rgrep<CR>
 
 "Taglist插件设置{
-let Tlist_Exit_OnlyWindow = 1   "如果taglist窗口是最后一个窗口，则退出vim let Tlist_Use_Right_Window = 1  "在右侧窗口中显示taglist窗口 
+let Tlist_Exit_OnlyWindow = 1   "如果taglist窗口是最后一个窗口，则退出vim
+let Tlist_Use_Right_Window = 1  "在右侧窗口中显示taglist窗口 
 "let Tlist_Sort_Type = name"    "使taglist以tag名字进行排序
 let Tlist_Use_SingleClick = 1   "单击tag就跳转
 let Tlist_Auto_Open = 0         "启动vim后自动打开taglist窗口
 let Tlist_Show_One_File = 1     "设置不同时打开多个文件的Tags
 let Tlist_File_Fold_Auto_Close=1 "让当前不被编辑的文件的方法列表自动折叠起来
-let Tlist_WinWidth=60
+let Tlist_WinWidth=30
 let Tlist_Close_On_Select=1  "选择了tag后自动关闭taglist窗口
 let Tlist_GainFocus_On_ToggleOpen=1 "打开taglist窗口时输入焦点在taglist窗口中
 let Tlist_Display_Tag_Scope=1 "在标签名后是否显示标签有效范围
@@ -402,8 +404,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1 
 let g:airline#extensions#tabline#buffer_nr_show = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_section_b = "%{fnamemodify(bufname('%'),':p:.:h').'/'}"
-let g:airline_section_c = '%t'
+"let g:airline_section_b = "%{fnamemodify(bufname('%'),':p:.:h').'/'}"
+"let g:airline_section_c = '%t'
 let g:airline_section_warning = airline#section#create(['syntastic'])
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
@@ -416,12 +418,42 @@ let g:airline_left_sep = '►'
 let g:airline_right_sep = '◄'
 "let g:airline_left_sep = ''
 "let g:airline_right_sep = ''
-let g:airline_symbols.linenr = '☺'
+"let g:airline_symbols.linenr = '☺'
 let g:airline_symbols.branch = '๑'
 let g:airline_symbols.paste = '粘贴'
 let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_symbols.readonly = '只读'
+"let g:airline#extensions#tabline#left_sep = ' '
+"let g:airline#extensions#tabline#left_alt_sep = '|'
+"显示文件路径
+function! AirlineInit()
+    let g:airline_section_b = airline#section#create(['%{getcwd()}/','file'])
+    let g:airline_section_c = airline#section#create(['ffenc'])
+    let g:airline_section_x = airline#section#create(['filetype'])
+    let g:airline_section_y = airline#section#create([' 当前 %p%%',' 行','%l',':',' 列','%c'])
+    let g:airline_section_z = airline#section#create(['%{strftime("%Y/%m/%d %H:%M")}'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
+"let g:airline#extensions#tabline#buffer_idx_mode = 1
+"nmap  1 <Plug>AirlineSelectTab1
+"nmap  2 <Plug>AirlineSelectTab2
+"nmap  3 <Plug>AirlineSelectTab3
+"nmap  4 <Plug>AirlineSelectTab4
+"nmap  5 <Plug>AirlineSelectTab5
+"nmap  6 <Plug>AirlineSelectTab6
+"nmap  7 <Plug>AirlineSelectTab7
+"nmap  8 <Plug>AirlineSelectTab8
+"nmap  9 <Plug>AirlineSelectTab9
 
+function! MyPlugin(...)
+    if &filetype == 'MyPluginFileType'
+        let w:airline_section_a = 'MyPlugin'
+        let w:airline_section_b = '%f'
+        let w:airline_section_c = '%{MyPlugin#function()}'
+        let g:airline_variable_referenced_in_statusline = 'foo'
+    endif
+endfunction
+call airline#add_statusline_func('MyPlugin')
 
 "vimwiki开始{
 let g:vimwiki_use_mouse = 1
@@ -547,3 +579,37 @@ map <leader>M :1,$s/\r//g<cr><C-o><C-o>
 
 map <C-A> ggVG$"+y
 vmap <C-c> "+y
+
+
+"vim-fugitive plugin{
+"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+"autocmd BufReadPost fugitive://* set bufhidden=delete
+"}
+
+
+let g:rainbow_active = 1 
+let g:rainbow_conf = {
+\   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+\   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+\   'operators': '_,_',
+\   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+\   'separately': {
+\       '*': {},
+\       'tex': {
+\           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+\       },
+\       'lisp': {
+\           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+\       },
+\       'vim': {
+\           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+\       },
+\       'php': {
+\           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+\       },
+\       'html': {
+\           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+\       },
+\       'css': 0,
+\   }
+\}
