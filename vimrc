@@ -414,26 +414,25 @@ endif
 
 "dark simple tomorrow powerlineish
 let g:airline_theme             = 'dark' "修改airline主题
-let g:airline_left_sep = '►'
-let g:airline_right_sep = '◄'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 "let g:airline_left_sep = ''
 "let g:airline_right_sep = ''
 "let g:airline_symbols.linenr = '☺'
-let g:airline_symbols.branch = '๑'
 let g:airline_symbols.paste = '粘贴'
 let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_symbols.readonly = '只读'
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
 "显示文件路径
-function! AirlineInit()
-    let g:airline_section_b = airline#section#create(['%{getcwd()}/','file'])
-    let g:airline_section_c = airline#section#create(['ffenc'])
-    let g:airline_section_x = airline#section#create(['filetype'])
-    let g:airline_section_y = airline#section#create([' 当前 %p%%',' 行','%l',':',' 列','%c'])
-    let g:airline_section_z = airline#section#create(['%{strftime("%Y/%m/%d %H:%M")}'])
-endfunction
-autocmd User AirlineAfterInit call AirlineInit()
+"function! AirlineInit()
+    "let g:airline_section_b = airline#section#create(['%{getcwd()}/','file'])
+    "let g:airline_section_c = airline#section#create(['ffenc'])
+    "let g:airline_section_x = airline#section#create(['filetype'])
+    "let g:airline_section_y = airline#section#create([' 当前 %p%%',' 行','%l',':',' 列','%c'])
+    "let g:airline_section_z = airline#section#create(['%{strftime("%Y/%m/%d %H:%M")}'])
+"endfunction
+"autocmd User AirlineAfterInit call AirlineInit()
 "let g:airline#extensions#tabline#buffer_idx_mode = 1
 "nmap  1 <Plug>AirlineSelectTab1
 "nmap  2 <Plug>AirlineSelectTab2
