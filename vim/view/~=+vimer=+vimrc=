@@ -23,11 +23,16 @@ setlocal nocindent
 setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
 setlocal comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",:\"
 setlocal commentstring=\"%s
 setlocal complete=.,w,b,u,t,i
-setlocal completefunc=
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=neocomplcache#complete#manual_complete
 setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
 setlocal nocursorcolumn
 setlocal cursorline
 setlocal define=
@@ -60,7 +65,7 @@ setlocal includeexpr=
 setlocal indentexpr=GetVimIndent()
 setlocal indentkeys=0{,0},:,0#,!^F,o,O,e,=end,=else,=cat,=fina,=END,0\\
 setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
+setlocal iskeyword=@,48-57,_,192-255,#
 setlocal keywordprg=
 setlocal nolinebreak
 setlocal nolisp
@@ -78,6 +83,7 @@ setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
 setlocal noreadonly
+setlocal norelativenumber
 setlocal norightleft
 setlocal rightleftcmd=search
 setlocal noscrollbind
@@ -100,17 +106,18 @@ setlocal tabstop=4
 setlocal tags=
 setlocal textwidth=78
 setlocal thesaurus=
+setlocal noundofile
 setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 435 - ((43 * winheight(0) + 23) / 46)
+let s:l = 34 - ((33 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-435
-normal! 06l
+34
+normal! 051|
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

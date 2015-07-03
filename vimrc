@@ -31,7 +31,7 @@ Bundle 'https://github.com/jlanzarotta/bufexplorer.git'
 Bundle 'https://github.com/vim-scripts/taglist.vim.git'
 Bundle 'https://github.com/mattn/calendar-vim.git'
 Bundle 'https://github.com/Shougo/neocomplcache.vim.git'
-Bundle 'https://github.com/msanders/snipmate.vim.git'
+Bundle 'https://github.com/azzsh/azzsh_snipmate.git'
 Bundle 'https://github.com/vimwiki/vimwiki.git'
 Bundle 'https://github.com/vim-scripts/grep.vim.git'
 Bundle "https://github.com/azzsh/desire.git"
@@ -407,52 +407,56 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 "let g:airline_section_b = "%{fnamemodify(bufname('%'),':p:.:h').'/'}"
 "let g:airline_section_c = '%t'
 let g:airline_section_warning = airline#section#create(['syntastic'])
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
+"let g:airline_powerline_fonts = 1
+"if !exists('g:airline_symbols')
+"let g:airline_symbols = {}
+"endif
 
 "dark simple tomorrow powerlineish
 let g:airline_theme             = 'dark' "修改airline主题
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-"let g:airline_left_sep = ''
-"let g:airline_right_sep = ''
-"let g:airline_symbols.linenr = '☺'
-let g:airline_symbols.paste = '粘贴'
-let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_symbols.readonly = '只读'
-"let g:airline#extensions#tabline#left_sep = ' '
-"let g:airline#extensions#tabline#left_alt_sep = '|'
+"let g:airline_left_sep = ''
+let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
+let g:airline_symbols.paste = '粘'
+"let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = ''
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 "显示文件路径
-"function! AirlineInit()
-    "let g:airline_section_b = airline#section#create(['%{getcwd()}/','file'])
-    "let g:airline_section_c = airline#section#create(['ffenc'])
+function! AirlineInit()
+    let g:airline_section_c = airline#section#create(['%{getcwd()}/','file'])
+    "let g:airline_section_x = airline#section#create(['ffenc'])
     "let g:airline_section_x = airline#section#create(['filetype'])
-    "let g:airline_section_y = airline#section#create([' 当前 %p%%',' 行','%l',':',' 列','%c'])
-    "let g:airline_section_z = airline#section#create(['%{strftime("%Y/%m/%d %H:%M")}'])
-"endfunction
-"autocmd User AirlineAfterInit call AirlineInit()
-"let g:airline#extensions#tabline#buffer_idx_mode = 1
-"nmap  1 <Plug>AirlineSelectTab1
-"nmap  2 <Plug>AirlineSelectTab2
-"nmap  3 <Plug>AirlineSelectTab3
-"nmap  4 <Plug>AirlineSelectTab4
-"nmap  5 <Plug>AirlineSelectTab5
-"nmap  6 <Plug>AirlineSelectTab6
-"nmap  7 <Plug>AirlineSelectTab7
-"nmap  8 <Plug>AirlineSelectTab8
-"nmap  9 <Plug>AirlineSelectTab9
-
-function! MyPlugin(...)
-    if &filetype == 'MyPluginFileType'
-        let w:airline_section_a = 'MyPlugin'
-        let w:airline_section_b = '%f'
-        let w:airline_section_c = '%{MyPlugin#function()}'
-        let g:airline_variable_referenced_in_statusline = 'foo'
-    endif
+    let g:airline_section_x = airline#section#create([''])
+    "let g:airline_section_y = airline#section#create(['%{strftime("%Y/%m/%d %H:%M")}'])
+    let g:airline_section_z = airline#section#create([' 当前 %p%%',' 行','%l',':',' 列','%c'])
 endfunction
-call airline#add_statusline_func('MyPlugin')
+autocmd User AirlineAfterInit call AirlineInit()
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap  <leader>1 <Plug>AirlineSelectTab1
+nmap  <leader>2 <Plug>AirlineSelectTab2
+nmap  <leader>3 <Plug>AirlineSelectTab3
+nmap  <leader>4 <Plug>AirlineSelectTab4
+nmap  <leader>5 <Plug>AirlineSelectTab5
+nmap  <leader>6 <Plug>AirlineSelectTab6
+nmap  <leader>7 <Plug>AirlineSelectTab7
+nmap  <leader>8 <Plug>AirlineSelectTab8
+nmap  <leader>9 <Plug>AirlineSelectTab9
+
+"function! MyPlugin(...)
+"if &filetype == 'MyPluginFileType'
+"let w:airline_section_a = 'MyPlugin'
+"let w:airline_section_b = '%f'
+"let w:airline_section_c = '%{MyPlugin#function()}'
+"let g:airline_variable_referenced_in_statusline = 'foo'
+"endif
+"endfunction
+"call airline#add_statusline_func('MyPlugin')
 
 "vimwiki开始{
 let g:vimwiki_use_mouse = 1
@@ -576,39 +580,40 @@ map <leader>[' ciw['<esc>p
 "删除^M
 map <leader>M :1,$s/\r//g<cr><C-o><C-o>
 
-map <C-A> ggVG$"+y
-vmap <C-c> "+y
+"全选并复制
+map <C-A> ggVG
+"对于跨多行的语句，每次移动一行
+map j gj
+vmap j gj
+map k gk
+vmap k gk
 
 
-"vim-fugitive plugin{
-"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-"autocmd BufReadPost fugitive://* set bufhidden=delete
-"}
-
-
+"rainbow彩虹括号插件开始{"
 let g:rainbow_active = 1 
 let g:rainbow_conf = {
-\   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-\   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
-\   'operators': '_,_',
-\   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-\   'separately': {
-\       '*': {},
-\       'tex': {
-\           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-\       },
-\       'lisp': {
-\           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-\       },
-\       'vim': {
-\           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-\       },
-\       'php': {
-\           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-\       },
-\       'html': {
-\           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-\       },
-\       'css': 0,
-\   }
-\}
+            \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+            \   'ctermfgs': ['darkblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+            \   'operators': '_,_',
+            \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+            \   'separately': {
+            \       '*': {},
+            \       'tex': {
+            \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+            \       },
+            \       'lisp': {
+            \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+            \       },
+            \       'vim': {
+            \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+            \       },
+            \       'html': {
+            \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+            \       },
+            \       'php': {
+            \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold', 'start=/(/ end=/)/ containedin=@htmlPreproc contains=@phpClTop', 'start=/\[/ end=/\]/ containedin=@htmlPreproc contains=@phpClTop', 'start=/{/ end=/}/ containedin=@htmlPreproc contains=@phpClTop'],
+            \       },  
+            \       'css': 0,
+            \   }
+            \}
+"}
