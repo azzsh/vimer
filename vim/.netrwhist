@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/yanyalong/.vim'
-let g:netrw_dirhist_2='/home/yanyalong/vimer/vim/vimfiles/bundle/snipmate.vim/snippets'
-let g:netrw_dirhist_3='/home/yanyalong/wwwroot/OrgCenter/uploads/logs/sendMsg'
-let g:netrw_dirhist_4='/home/yanyalong/wwwroot/OrgCenter/.git'
-let g:netrw_dirhist_5='/home/yanyalong/.vim'
