@@ -1,6 +1,6 @@
 一.说明
-    1.vimer 我的vim配置
-    2.init.sh 初始化文件
+    #1.vimer 我的vim配置
+    #2.init.sh 初始化文件
     3.该配置倾向php开发,用于linux平台
 二.初始化
     1.进入需要安装本配置的用户家目录 执行 git clone https://github.com/azzsh/vimer.git
